@@ -141,6 +141,15 @@ public class App {
 	}
 }
 ```
+从容器中获取Bean:
+
+```
+    // 2.从 IOC 容器中获取 bean 的实例:以id的方式
+    // User user = (User) ctx.getBean("user");
+    
+    // 2.从 IOC 容器中获取 bean 的实例:以类型的方式获取
+    User user = (User) ctx.getBean(User.class);
+```
 
 最后运行main方法，打印内容：
 
