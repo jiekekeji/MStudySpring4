@@ -8,7 +8,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class App {
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
 
 		// 1. 创建 Spring 的 IOC 容器: 从类路径加载xml配置文件
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
