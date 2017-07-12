@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+	<!--即通过 setter 方法注入Bean 的属性值 -->
+	<bean id="user-1" class="com.jk.User">
+		<!--对应 User的setName方法 -->
+		<property name="name" value="小丽"></property>
+		<!--对应 User的setAge方法 -->
+		<property name="age" value="18"></property>
+		<!--引用其他的bean,先声明好，然后通过id引用 -->
+		<property name="car" ref="car"></property>
+	</bean>
+
+	<!--即通过 setter 方法注入Bean 的属性值 -->
+	<bean id="user-2" class="com.jk.User">
+		<!--对应 User的setName方法 -->
+		<property name="name" value="小白"></property>
+		<!--对应 User的setAge方法 -->
+		<property name="age" value="22"></property>
+		<!--引用其他的bean,先声明好，然后通过id引用 -->
+		<property name="car" ref="car"></property>
+	</bean>
+
+
+	<bean id="user-3" class="com.jk.User">
+		<!--对应 User的setName方法 -->
+		<property name="name" value="小丽"></property>
+		<!--对应 User的setAge方法 -->
+		<property name="age" value="18"></property>
+		<!--引用其他的bean,先声明好，然后通过id引用 -->
+		<property name="car">
+			<bean class="com.jk.Car">
+				<property name="name" value="兰博基尼" />
+			</bean>
+		</property>
+	</bean>
+
+	<!--配置好car -->
+	<bean id="car" class="com.jk.Car">
+		<property name="name" value="奔驰GLA200" />
+	</bean>
+
+	<bean id="user-4" class="com.jk.User">
+		<!--和构造函数的id对应 -->
+		<constructor-arg value="65516156" index="0"></constructor-arg>
+		<!--和构造函数的name对应 -->
+		<constructor-arg value="露丝" index="1"></constructor-arg>
+		<!--和构造函数的age对应 -->
+		<constructor-arg value="19" index="2"></constructor-arg>
+		<!--和构造函数的car对应,这里的car在之前已定义 -->
+		<constructor-arg ref="car" index="3"></constructor-arg>
+	</bean>
+
+
+	<bean id="user-5" class="com.jk.User">
+		<!--和构造函数的id对应 -->
+		<constructor-arg name="id" value="65516156"></constructor-arg>
+		<!--和构造函数的name对应 -->
+		<constructor-arg name="name" value="杰克"></constructor-arg>
+		<!--和构造函数的age对应 -->
+		<constructor-arg name="age" value="25"></constructor-arg>
+		<!--和构造函数的car对应,这里的car在之前已定义 -->
+		<constructor-arg name="car" ref="car"></constructor-arg>
+	</bean>
+
+
+</beans>
