@@ -1,4 +1,4 @@
-spring4.2.5--HelloWorld
+Spring--HelloWorld入门程序
 ===
 
 1、创建maven的java项目，创建过程如下：
