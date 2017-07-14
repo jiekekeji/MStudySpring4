@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- brand的配置 -->
+	<bean id="brand" class="com.jk.Brand">
+		<property name="name" value="#{'品牌名称'}" />
+	</bean>
+
+	<!-- car的配置 -->
+	<bean id="car" class="com.jk.Car">
+		<property name="name" value="#{'哈弗 H9'}" />
+		<property name="price" value="#{24}" />
+		<property name="brand" value="#{brand}"></property>
+	</bean>
+
+	<!-- user的配置 -->
+	<bean id="user_1" class="com.jk.User">
+		<!-- 引入其他的bean -->
+		<property name="car" value="#{car}" />
+		<property name="name" value="#{'Jack'}" />
+	</bean>
+
+	<bean id="user_2" class="com.jk.User">
+		<property name="car" value="#{car}" />
+		<!-- 引入其他的bean的属性 -->
+		<property name="name" value="#{car.name}" />
+	</bean>
+
+	<bean id="user_3" class="com.jk.User">
+		<property name="car" value="#{car}" />
+		<!-- 引入其他的bean的方法 -->
+		<property name="name" value="#{car.getName()}" />
+	</bean>
+
+	<bean id="user_4" class="com.jk.User">
+		<property name="car" value="#{car}" />
+		<!-- 引入其他的bean的方法 -->
+		<property name="name" value="#{car.getBrand().getName()}" />
+	</bean>
+
+	<bean id="user_5" class="com.jk.User">
+		<property name="car" value="#{car}" />
+		<!-- 为了防止 car.getBrand()返回空 ，加?.操作符 -->
+		<property name="name" value="#{car.getBrand()?.getName()}" />
+	</bean>
+
+	<!-- 访问Car类里面的静态常量和静态方法T() 运算符 -->
+	<bean id="user_6" class="com.jk.User">
+		<!-- 访问里面的静态变量 -->
+		<property name="name" value="#{T(com.jk.Car).childName}" />
+		<!-- 访问里面的静态方法 -->
+		<property name="address" value="#{T(com.jk.Car).getChildName()}" />
+	</bean>
+
+
+
+
+</beans>
