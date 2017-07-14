@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+    <!--即通过 setter 方法注入Bean 的属性值 -->
+    <bean id="honda" class="com.jk.Car">
+        <property name="name" value="思域"/>
+        <property name="price" value="120520"/>
+    </bean>
+
+    <bean id="ford" class="com.jk.Car">
+        <property name="name" value="蒙迪欧"/>
+        <property name="price" value="180520"/>
+    </bean>
+
+    <!--book实体-->
+    <bean id="java" class="com.jk.Book">
+        <property name="name" value="从入门到丢弃"/>
+        <property name="price" value="125"/>
+    </bean>
+
+    <bean id="vuejs" class="com.jk.Book">
+        <property name="name" value="由深入到入门"/>
+        <property name="price" value="140"/>
+    </bean>
+
+    <!--user_1 这个人有两辆车 -->
+    <bean id="user_1" class="com.jk.User">
+        <property name="id" value="25623541"/>
+        <property name="name" value="Jack"/>
+
+        <!--装配list的方式 -->
+        <property name="cars">
+            <list>
+                <ref bean="honda"/>
+                <ref bean="ford"/>
+            </list>
+        </property>
+
+        <!--装配set的方式和list一样 -->
+        <property name="books">
+            <list>
+                <ref bean="java"/>
+                <ref bean="vuejs"/>
+            </list>
+        </property>
+
+        <!--装配map的方式 -->
+        <property name="map">
+            <map>
+                <entry key="key1" value-ref="java"/>
+                <entry key="key2" value-ref="vuejs"/>
+            </map>
+        </property>
+
+        <!--map的key和vaule都是String类型的时候可以这么配置 -->
+        <property name="phoneMap">
+            <props>
+                <prop key="phone_1">18898652541</prop>
+                <prop key="phone_2">16525362542</prop>
+            </props>
+        </property>
+    </bean>
+
+
+</beans>
