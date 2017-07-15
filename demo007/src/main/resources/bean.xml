@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- person1 默认是单例的 singleton-->
+	<bean id="person1" class="com.jk.Person">
+		<property name="weight" value="#{100}" />
+		<property name="color" value="#{'黑色'}" />
+	</bean>
+
+	<bean id="car" class="com.jk.Car" scope ="prototype">
+		<property name="name" value="#{'丰田'}" />
+		<property name="price" value="#{2000}" />
+	</bean>
+
+</beans>
