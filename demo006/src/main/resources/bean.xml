@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- person1 -->
+	<bean id="person1" class="com.jk.Person" abstract="true">
+		<property name="weight" value="#{100}" />
+		<property name="color" value="#{'黑色'}" />
+	</bean>
+
+	<!-- person2 -->
+	<bean id="person2" class="com.jk.Person" parent="person1">
+		<property name="weight" value="#{200}" />
+	</bean>
+
+	<bean id="car" class="com.jk.Car">
+		<property name="name" value="#{'丰田'}" />
+		<property name="price" value="#{2000}" />
+	</bean>
+
+	<bean id="user" class="com.jk.User" depends-on="car">
+		<property name="name" value="#{'Jack'}" />
+		<property name="address" value="#{'海南省'}" />
+		<property name="car" value="#{car}" />
+	</bean>
+
+
+</beans>
