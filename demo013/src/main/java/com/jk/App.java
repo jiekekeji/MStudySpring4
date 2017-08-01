@@ -16,20 +16,15 @@ public class App {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 
 		// 2.从 IOC 容器中获取 bean 的实例:以id的方式,注解时，用类名第一个字母小写的方式获取
-		ComboPooledDataSource dataSource = (ComboPooledDataSource) ctx.getBean("dataSource");
-
-		
 		JdbcTemplate jdbcTemplate = (JdbcTemplate) ctx.getBean("jdbcTemplate");
-		
-		System.out.println(dataSource);
-		System.out.println(jdbcTemplate);
-		
-		// 3.使用bean,插入語句
-		String sql="INSERT INTO spring_user (user_name,password) VALUES (?,?);";
-		
-		jdbcTemplate.update(sql,"jack","123456");
 
-		
+		System.out.println(jdbcTemplate);
+
+		// 3.使用bean,插入語句
+		String sql = "INSERT INTO spring_user (user_name,password) VALUES (?,?);";
+
+		System.out.println(jdbcTemplate.update(sql, "jack", "123456"));
+
 		// 4、关闭容器
 		ctx.registerShutdownHook();
 
