@@ -137,7 +137,7 @@ Spring-spring在web在的使用思路
     </web-app>
 ~~~
 
-5、新建servlet:UserWeb.java:
+5、新建servlet:UserWeb.java,从域中取出IOC容器:
 
 ~~~
 package com.jk.web;
