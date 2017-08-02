@@ -23,9 +23,8 @@ public class UserWeb extends HttpServlet {
 		// 从IOC容器中得到需要的bean
 		User user = (User) ctx.getBean("user");
 		System.out.println(user);
-		
+
 		resp.getWriter().append("Served at: ");
 
 	}
-
 }
