@@ -17,10 +17,10 @@ public class UserWeb extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// ´ÓapplicationÓò¶ÔÏóÖĞµÃµ½IOCÈİÆ÷µÄÒıÓÃ
+		// ä»applicationåŸŸå¯¹è±¡ä¸­å¾—åˆ°IOCå®¹å™¨çš„å¼•ç”¨
 		ServletContext servletContext = getServletContext();
 		ApplicationContext ctx = (ApplicationContext) servletContext.getAttribute("ApplicationContext");
-		// ´ÓIOCÈİÆ÷ÖĞµÃµ½ĞèÒªµÄbean
+		// ä»IOCå®¹å™¨ä¸­å¾—åˆ°éœ€è¦çš„bean
 		User user = (User) ctx.getBean("user");
 		System.out.println(user);
 

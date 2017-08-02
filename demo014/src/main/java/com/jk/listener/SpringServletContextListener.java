@@ -15,13 +15,13 @@ public class SpringServletContextListener implements ServletContextListener {
 
 	public void contextInitialized(ServletContextEvent arg0) {
 
-		// 1、获取ServletContext
+		// 1銆佽幏鍙朣ervletContext
 		ServletContext servletContext = arg0.getServletContext();
 
-		// 2、加载类路径下的beans.xml，创建IOC容器
+		// 2銆佸姞杞界被璺緞涓嬬殑beans.xml锛屽垱寤篒OC瀹瑰櫒
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 
-		// 3、将IOC容器放在ServletContext的一个属性中
+		// 3銆佸皢IOC瀹瑰櫒鏀惧湪ServletContext鐨勪竴涓睘鎬т腑
 		servletContext.setAttribute("ApplicationContext", ctx);
 
 	}
