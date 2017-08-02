@@ -1,4 +1,4 @@
-Spring-spring在web在的使用思路-1
+Spring-spring在web程序中的使用思路-1
 ===
 
 1、创建maven web项目，在pom.xml中加入依赖如下依赖：
