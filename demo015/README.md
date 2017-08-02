@@ -1,4 +1,4 @@
-Spring-spring在web中的使用-2-ContextLoaderListener
+Spring-spring在web程序中的使用-2-ContextLoaderListener
 ===
 
 在demo014中我们使用自定义的SpringServletContextListener在web程序启动时初始化IOC容器，
