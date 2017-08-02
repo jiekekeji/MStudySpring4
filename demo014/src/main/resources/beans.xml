@@ -10,4 +10,5 @@
 		<property name="name" value="小丽"></property>
 		<property name="age" value="22"></property>
 	</bean>
+	
 </beans>
